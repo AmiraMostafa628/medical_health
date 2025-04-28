@@ -32,9 +32,11 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: BlocConsumer<AuthBloc, AuthStates>(listener: (context, state) {
+        child: BlocConsumer<AuthBloc, AuthStates>(
+            listener: (context, state) {
           if (state.status == StatusType.success) {
             HomeBloc.get(context).add(HomeFetchDataEvent());
+            HomeBloc.get(context).add(GetFavoriteEvent());
             GoRouter.of(context).push(AppRouter.kHomeView);
           }
         }, builder: (context, state) {

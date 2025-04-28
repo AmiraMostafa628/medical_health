@@ -130,11 +130,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeStates> {
     AddFavoriteEvent event,
     Emitter<HomeStates> emit,
   ) async {
-    emit(
-      state.copyWith(
-        status: StatusType.loading,
-      ),
-    );
     final model = DoctorModel(
         docName: event.doctorModel.docName,
         docProfile: event.doctorModel.docProfile,

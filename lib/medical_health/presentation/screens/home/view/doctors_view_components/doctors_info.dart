@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:medical_health_clean_arch/core/services/go_router.dart';
 import 'package:medical_health_clean_arch/medical_health/domain/entities/doctor_entity.dart';
 import 'package:medical_health_clean_arch/medical_health/presentation/resources/color_manager.dart';
 import 'package:medical_health_clean_arch/medical_health/presentation/screens/home/view/doctors_view_components/action_decoration.dart';
@@ -183,30 +185,36 @@ class DoctorsInfo extends StatelessWidget {
                 Row(
                   spacing: 3,
                   children: [
-                    Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
-                        color: ColorManager.primaryColor,
-                      ),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.calendar_month,
-                            color: ColorManager.whiteColor,
-                          ),
-                          Text(
-                            'Schedule',
-                            style: Theme.of(context)
-                                .textTheme
-                                .labelSmall!
-                                .copyWith(
-                                  fontWeight: FontWeight.w100,
-                                  color: ColorManager.whiteColor,
-                                ),
-                          ),
-                        ],
+                    InkWell(
+                      onTap: (){
+                        GoRouter.of(context)
+                            .push(AppRouter.kScheduleViewBody, extra: doctorModel);
+                      },
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          color: ColorManager.primaryColor,
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.calendar_month,
+                              color: ColorManager.whiteColor,
+                            ),
+                            Text(
+                              'Schedule',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelSmall!
+                                  .copyWith(
+                                    fontWeight: FontWeight.w100,
+                                    color: ColorManager.whiteColor,
+                                  ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Spacer(),

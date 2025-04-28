@@ -19,7 +19,8 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeStates>(builder: (context, state) {
+    return BlocBuilder<HomeBloc, HomeStates>(
+        builder: (context, state) {
       if (state.status == StatusType.success) {
         HomeBloc.get(context).add(GetFavoriteEvent());
         return SingleChildScrollView(
@@ -52,8 +53,8 @@ class HomeViewBody extends StatelessWidget {
                                 .textTheme
                                 .labelSmall!
                                 .copyWith(
-                                    fontWeight: FontWeight.w200,
-                                    color: ColorManager.primaryColor),
+                                fontWeight: FontWeight.w200,
+                                color: ColorManager.primaryColor),
                           )
                         ],
                       ),
@@ -74,8 +75,8 @@ class HomeViewBody extends StatelessWidget {
                                 .textTheme
                                 .labelSmall!
                                 .copyWith(
-                                    fontWeight: FontWeight.w200,
-                                    color: ColorManager.primaryColor),
+                                fontWeight: FontWeight.w200,
+                                color: ColorManager.primaryColor),
                           )
                         ],
                       ),
@@ -113,10 +114,9 @@ class HomeViewBody extends StatelessWidget {
             ],
           ),
         );
-      } else if (state.status == StatusType.loadingHome) {
-        return Center(child: CircularProgressIndicator());
       }
-      return Container();
+      return Center(child: CircularProgressIndicator());
+
     });
   }
 }
