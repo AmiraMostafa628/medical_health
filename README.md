@@ -1,10 +1,14 @@
-# medical_health_clean_arch
+# Medical Health
+Is a modern medical application designed to connect users with healthcare professionals. The app allows users to book appointments, communicate with doctors, and manage their medical needs efficiently
 
-A new Flutter project.
+## Features
+- Clean Architecture implemented with MVVM.
+- Bloc for state management.
+- Firebase used for secure authentication.
+- Firestore for efficient data fetching.
+- Firebase Messaging enabling real-time communication.
+- Hive for lightweight and efficient local data storage.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
