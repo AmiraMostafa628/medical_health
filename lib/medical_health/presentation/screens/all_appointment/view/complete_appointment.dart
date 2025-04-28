@@ -1,0 +1,119 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:medical_health_clean_arch/core/services/go_router.dart';
+import 'package:medical_health_clean_arch/core/shared_function/initial_orders.dart';
+import 'package:medical_health_clean_arch/medical_health/presentation/resources/color_manager.dart';
+import 'package:medical_health_clean_arch/medical_health/presentation/screens/home/view/doctors_view_components/action_decoration.dart';
+import 'package:medical_health_clean_arch/medical_health/presentation/screens/home/view/doctors_view_components/rating_icon.dart';
+import 'package:medical_health_clean_arch/medical_health/presentation/shared_widgets/custom_text_button.dart';
+
+class CompleteAppointment extends StatelessWidget {
+  const CompleteAppointment({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: ListView.separated(
+          itemBuilder: (context, index) {
+            return Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(20.0),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: ColorManager.lightPrimaryColor),
+              child: Column(
+                spacing: 15,
+                children: [
+                  Row(
+                    spacing: 10.0,
+                    children: [
+                      CircleAvatar(
+                        radius: 40,
+                        backgroundImage: NetworkImage(
+                          doctorsModel[index].docProfile,
+                        ),
+                      ),
+                      Expanded(
+                        child: Column(
+                          spacing: 2.0,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              doctorsModel[index].docName,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16,
+                                    color: ColorManager.primaryColor,
+                                  ),
+                            ),
+                            Text(
+                              doctorsModel[index].medicalSpecialization,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displaySmall!
+                                  .copyWith(
+                                      fontWeight: FontWeight.w100,
+                                      fontSize: 14),
+                            ),
+                            SizedBox(
+                              height: 5.0,
+                            ),
+                            Row(
+                              spacing: 10,
+                              children: [
+                                RatingIcon(
+                                  docRating: doctorsModel[index].docRate,
+                                ),
+                                ActionDecoration(
+                                  icon: Icons.favorite,
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    spacing: 10.0,
+                    children: [
+                      Expanded(
+                        child: CustomTextButton(
+                          text: 'Re-Book',
+                          height: 45,
+                          backGroundColor: ColorManager.whiteColor,
+                          fontColor: ColorManager.primaryColor,
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                      ),
+                      Expanded(
+                        child: CustomTextButton(
+                          text: 'Add Review',
+                          height: 45,
+                          backGroundColor: ColorManager.primaryColor,
+                          fontColor: ColorManager.whiteColor,
+                          borderRadius: BorderRadius.circular(20.0),
+                          onPressed: () {
+                            GoRouter.of(context).push(
+                              AppRouter.kReviewAppointment,
+                              extra: doctorsModel[index],
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            );
+          },
+          separatorBuilder: (context, index) => SizedBox(
+                height: 10.0,
+              ),
+          itemCount: doctorsModel.length),
+    );
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "547698104607",
+    "project_id": "medical-health-1c831",
+    "storage_bucket": "medical-health-1c831.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547698104607:android:d5476418d133c869e4782a",
+        "android_client_info": {
+          "package_name": "com.example.medical_health"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlJ6Y6qT1QHHGg9j8nzR_X9IsYQrc2VNc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547698104607:android:bdb151cb4796cbc8e4782a",
+        "android_client_info": {
+          "package_name": "com.example.medical_health_clean_arch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlJ6Y6qT1QHHGg9j8nzR_X9IsYQrc2VNc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
