@@ -42,7 +42,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeStates> {
     HomeFetchDataEvent event,
     Emitter<HomeStates> emit,
   ) async {
-    emit(state.copyWith(status: StatusType.loading));
+    emit(state.copyWith(status: StatusType.loadingHome));
     final result = await fetchDoctorsDataUseCase.execute(null);
 
     result.fold((failure) {

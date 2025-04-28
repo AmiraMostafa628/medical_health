@@ -11,4 +11,4 @@ class AppConstance {
   static const userModelKey = "userModel";
 }
 
-enum StatusType { initial, loading, success, failure }
+enum StatusType { initial, loadingHome,loading, success, failure }

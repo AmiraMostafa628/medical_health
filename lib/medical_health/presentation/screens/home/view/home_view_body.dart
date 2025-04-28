@@ -113,9 +113,10 @@ class HomeViewBody extends StatelessWidget {
             ],
           ),
         );
-      } else {
+      } else if (state.status == StatusType.loadingHome) {
         return Center(child: CircularProgressIndicator());
       }
+      return Container();
     });
   }
 }
